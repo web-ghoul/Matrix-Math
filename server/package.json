@@ -1,0 +1,20 @@
+{
+  "name": "matrix-math",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amr006/Matrix-Math.git"
+  },
+  "author": "Amr006 WebGhoul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amr006/Matrix-Math/issues"
+  },
+  "homepage": "https://github.com/Amr006/Matrix-Math#readme"
+}
