@@ -21,7 +21,7 @@ const mongoSanitize = require("express-mongo-sanitize");
 
 
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
-
+const authRoutes = require("./routes/private/authRoutes")
 
 
 // Use the express.static middleware to serve static files from the public folder
@@ -148,12 +148,15 @@ app.get("/", (req, res, next) => {
 });
 
 
+
 // app.use(express.static(path.join(__dirname , '../client/build')))
 // app.get("*" , function (req,res) {
 //   res.sendFile(path.join(__dirname, '../client/build/index.html'))
 
 // }
 // )
+
+app.use("/api" , authRoutes)
 
 app.use(notFound);
 app.use(errorHandler);
