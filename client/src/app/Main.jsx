@@ -7,6 +7,8 @@ import MyThemeProvider from "@/context/MyThemeContext";
 import { Box } from "@mui/material";
 import TeacherProvider from "@/context/TeacherContext";
 import { MainBox } from "@/mui/Boxes/MainBox";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const Main = ({ children }) => {
   return (
@@ -15,7 +17,11 @@ const Main = ({ children }) => {
         <TeacherProvider>
           <Provider store={store}>
             <MyThemeProvider>
-              <MainBox>{children}</MainBox>
+              <MainBox>
+                <Header />
+                {children}
+                <Footer />
+              </MainBox>
             </MyThemeProvider>
           </Provider>
         </TeacherProvider>

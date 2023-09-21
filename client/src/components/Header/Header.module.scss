@@ -1,7 +1,7 @@
 @import "../../app/webGhoul.scss";
 @import "../../app/app.scss";
 .header {
-    background-color: $white;
-    box-shadow: $box_shadow;
-    color: $dark;
+    background-color: $white !important;
+    box-shadow: $box_shadow !important;
+    color: $dark !important;
 }
