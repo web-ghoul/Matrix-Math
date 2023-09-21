@@ -25,16 +25,11 @@ const UserSchema = Schema(
       type: Boolean,
       default: false,
     },
-    Teams: {
-      type: [Schema.Types.ObjectId],
-      ref: "Team",
-      default : [],
-    },
-    Image: {
+    Avatar: {
       type: String,
       default: "https://cdn-icons-png.flaticon.com/512/1738/1738691.png",
     },
-    BackgroundImage: {
+    Cover: {
       type: String,
       default:
         "https://img.freepik.com/free-vector/remote-management-distant-work-flat-line-composition-with-earth-globe-location-signs-views-freelancers-vector-illustration_98292-9077.jpg?w=1380&t=st=1694549599~exp=1694550199~hmac=aea753c94e4a1e8505d0fc48b214afacb9999f3aea5b09c671774993436c3f09",
@@ -43,14 +38,29 @@ const UserSchema = Schema(
       type: String,
       default: "",
     },
-    Bio: {
-      type: String,
-      default: "",
-    },
-    FacebookId: {
+    Phone : {
       type : String ,
-
+    },
+    Grade : {
+      type: String , 
+    },
+    points: {
+      type: Number ,
+      default : 0 
+    },
+    NumberOfQuizes:{
+      type: Number ,
+    },
+    NumberOfExams:{
+      type: Number ,
+    },
+    Gender: {
+      type: String ,
+      
     }
+
+    
+
     
   },
   { timestamps: true },
