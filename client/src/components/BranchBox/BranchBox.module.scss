@@ -1,0 +1,13 @@
+@import "../../app/webGhoul.scss";
+
+.branch_box{
+    border-radius: 10px;
+    background-color: $white;
+    box-shadow: $box_shadow;
+    .branch_box_image{
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 8px;
+    }
+}

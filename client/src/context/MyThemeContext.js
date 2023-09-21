@@ -13,6 +13,7 @@ const MyThemeProvider = ({ children }) => {
     palette: {
       primary: { main: "#3B70E2" },
       black: "#333",
+      gray:"#eee",
       dark: "#000",
       white: "#ffffff",
       youtube: "#ff0000",
@@ -55,6 +56,9 @@ const MyThemeProvider = ({ children }) => {
     typography: {
       fontFamily: "Cairo",
     },
+    button:{
+      fontFamily: "Ubuntu",
+    }
   });
 
   theme.typography.h1 = {

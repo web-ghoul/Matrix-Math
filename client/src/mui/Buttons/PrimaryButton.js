@@ -3,6 +3,7 @@ import { Button } from "@mui/material";
 
 export const PrimaryButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
+  width:"fit-content",
   color: theme.palette.white,
   borderRadius: "4px",
   transition: theme.palette.transition,

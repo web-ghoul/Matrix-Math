@@ -1,0 +1,21 @@
+@import "../../app/webGhoul.scss";
+
+.contact_section_box {
+    .contact_section_Form {
+        grid-template-columns: repeat(2, 1fr);
+        .contact_data_box {
+            background-color: $white;
+            box-shadow: $box_shadow;
+            border-radius: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            @media(max-width:$md_size) {
+                order:-1;
+            }
+        }
+        @media(max-width:$md_size) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+}
