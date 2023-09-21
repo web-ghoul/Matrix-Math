@@ -1,5 +1,6 @@
 const User = require("../models/UserSchema");
 const Userverification = require("../models/verifyaccountsSchema");
+const resetverification = require("../models/resetAccountSchema")
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
@@ -25,10 +26,18 @@ transporter.verify((err, success) => {
   }
 });
 
-function options(type, currentUrl, otp, Email, _id , Name = "Null") {
+function options(type, currentUrl, object, Email, _id , Name = "Null") {
   let obj;
-  var otp;
-  otp = currentUrl + "/api/verify/" + _id + "/" + otp;
+  var otp;  
+  
+  if(type == "forgotPassword")
+  {
+    otp  = currentUrl + "/api/reset_password/" + _id + "/" + object;
+  }else
+  {
+    otp = object;
+  }
+  
 
   if (type == "forgotPassword") {
     obj = {
@@ -4429,61 +4438,86 @@ function generateRandomNumberString(length) {
   return result;
 }
 
-const sendVerificationEmail = async ({ _id, Email , Name }, type, res) => {
-  const currentUrl = process.env.CLIENT_URL;
-  const otp = generateRandomNumberString(6);
-  var welcomeOptions = options("welcome", currentUrl, otp, Email, _id , Name);
-  
+const sendVerificationEmail = async ({ _id, Email }, type, res) => {
+  const currentUrl = "http://localhost:3000";
+  const uniqueString = uuidv4() + _id;
+
   if (type == "forgotPassword") {
-    const alreadySendCheck = await Userverification.findOne({ userId: _id });
+    const alreadySendCheck = await resetverification.findOne({ userId: _id });
     if (alreadySendCheck) {
       return res.status(402).json({
-        message: "You have already sent a OTP",
+        message: "You have already sent a password reset email.",
       });
     } else {
-      
       res.json({
         status: "pending",
-        message: "OTP sent. Check your inbox",
+        message: "Password reset email sent. Check your inbox",
+      });
+      const mailOptions = options(type, currentUrl, uniqueString, Email, _id);
+      bcrypt.hash(uniqueString, 10, (err, hashedUniqueString) => {
+        if (err) {
+          res.json({
+            status: "failed",
+            message: "an error occurred while hashing email data !",
+          });
+        } else {
+          const newresetVerification = new resetverification({
+            userId: _id,
+            uniqueString: hashedUniqueString,
+            createdAt: Date.now(),
+            expireAt: Date.now() + 21600000,
+          });
+          newresetVerification
+            .save()
+            .then(() => {
+              transporter
+                .sendMail(mailOptions)
+                .then(() => {})
+                .catch((err) => {
+                  res.status(404).json({
+                    message: err,
+                  });
+                });
+            })
+            .catch((err) => {
+              res.json({
+                status: "failed",
+                message:
+                  "an error occurred while saving verification email   data !",
+              });
+            });
+        }
       });
     }
   } else {
-    
-    await transporter.sendMail(welcomeOptions)
-
     res.json({
       status: "pending",
-      message: "OTP sent to email",
+      message: "verification email sent",
     });
-  }
-
-  const mailOptions = options(type, currentUrl, otp, Email, _id);
-  
-  const newVerification = new Userverification({
-    userId: _id,
-    otp: otp,
-    createdAt: Date.now(),
-    expireAt: Date.now() + 21600000,
-  });
-  newVerification
-    .save()
-    .then(() => {
-      transporter
-        .sendMail(mailOptions)
-        .then(() => {})
-        .catch((err) => {
-          res.status(404).json({
-            message: err,
-          });
+    const otp = generateRandomNumberString(6) ;
+    const mailOptions = options(type, currentUrl, otp, Email, _id);
+    
+        const newVerification = new Userverification({
+          userId: _id,
+          otp: otp ,
+          createdAt: Date.now(),
+          expireAt: Date.now() + 21600000,
         });
-    })
-    .catch((err) => {
-      res.json({
-        status: "failed",
-        message:
-          "an error occurred while saving verification email   data !",
-      });
-    });
+        newVerification
+          .save()
+          .then(() => {
+            transporter
+              .sendMail(mailOptions)
+              .then(() => {})
+              .catch((err) => {
+                res.status(404).json({
+                  message: err,
+                });
+              });
+          })
+        }
+
+
 };
 
 const register = async (req, res, next) => {
@@ -4692,14 +4726,14 @@ const forgetPasswordResponse = (req, res, next) => {
 
   var { userId, uniqueString } = req.params;
 
-  Userverification.findOne({ userId: userId })
+  resetverification.findOne({ userId: userId })
     .then((result) => {
       if (result) {
         const { expireAt } = result;
         const hashedUniqueString = result.uniqueString;
 
         if (expireAt < Date.now()) {
-          Userverification.deleteOne({ userId: userId })
+          resetverification.deleteOne({ userId: userId })
             .then((result) => {
               User.deleteOne({ _id: userId })
                 .then((result) => {
