@@ -1,0 +1,17 @@
+@import "../../app/webGhoul.scss";
+@import "../../app/app.scss";
+
+.footer {
+    background-color: $main;
+    color: $white;
+    @media (max-width:$xs_size) {
+        .footer_contain{
+            display: grid !important;
+        }
+    }
+}
+
+.foot {
+    background-color: $dark;
+    color: $white;
+}
