@@ -1,0 +1,28 @@
+@import "../../app/webGhoul.scss";
+
+.form_halves {
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 80vh;
+    .form_image {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 100%;
+    }
+    .agree {
+        a {
+            color: $main;
+            text-decoration: underline !important;
+        }
+    }
+    @media(max-width:$lg_size) {
+        min-height: 60vh;
+    }
+    @media(max-width:$md_size) {
+        grid-template-columns: repeat(1, 1fr);
+        min-height: auto;
+        .form_image {
+            display: none;
+        }
+    }
+}

@@ -16,7 +16,12 @@ const Header = () => {
       <SecondaryBox>
         <PrimaryContainer className={`flex jcsb aic g30`}>
           <Typography variant="h5">Matrix Math</Typography>
-          <Box component={"nav"} className={`flex jcs aic g30 ${styles.links}`}>
+          {/* <Box component={"nav"} className={`flex jcs aic g30 ${styles.links}`}>
+           <Link href={`${process.env.NEXT_PUBLIC_HOME_PAGE}`}>
+              <Typography variant="h6" className={`fw500 ttuc`}>
+                Home
+              </Typography>
+            </Link>
             <Link href={`${process.env.NEXT_PUBLIC_DASHBOARD_PAGE}`}>
               <Typography variant="h6" className={`fw500 ttuc`}>
                 Dashboard
@@ -42,7 +47,7 @@ const Header = () => {
                 Contact Us
               </Typography>
             </Link>
-          </Box>
+          </Box> */}
           <Box className={`flex jcs aic g20`}>
             <PrimaryBorderButton
               onClick={() =>

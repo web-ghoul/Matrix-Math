@@ -12,7 +12,7 @@ const Head = ({ title, basic }) => {
           color: (theme) =>
             basic ? theme.palette.dark : theme.palette.primary.main,
         }}
-        variant="h3"
+        variant="h4"
         className={`ttuc ${!basic && styles.line}`}
       >
         {title}
