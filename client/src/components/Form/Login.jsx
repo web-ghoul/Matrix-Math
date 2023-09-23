@@ -2,10 +2,10 @@ import { PrimaryLoadingButton } from "@/mui/Buttons/PrimaryLoadingButton";
 import { PrimaryTextField } from "@/mui/PrimaryTextField";
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import back from "../../../public/assets/images/register.jpg";
+import back from "../../../public/assets/images/login.jpg";
 import Link from "next/link";
 
-const Login = ({formik}) => {
+const Login = ({ formik }) => {
   return (
     <>
       <Box className={`grid jcs aic g20`}>
@@ -24,6 +24,7 @@ const Login = ({formik}) => {
           fullWidth
           id="password"
           name="password"
+          type="password"
           label="Password"
           value={formik.values.password}
           onChange={formik.handleChange}
@@ -34,14 +35,19 @@ const Login = ({formik}) => {
         <PrimaryLoadingButton
           type="submit"
           loading={false}
-          loadingPosition="start"
           variant="text"
           className={`center_rel_x`}
         >
           Log In
         </PrimaryLoadingButton>
         <Link href={`${process.env.NEXT_PUBLIC_FORGOT_PASSWORD_PAGE}`}>
-          <Typography variant="h6" className={`tal ttcap`} sx={{color:(theme)=>theme.palette.primary.main}}>Forgot your Password?</Typography>
+          <Typography
+            variant="h6"
+            className={`tal ttcap`}
+            sx={{ color: (theme) => theme.palette.primary.main }}
+          >
+            Forgot your Password?
+          </Typography>
         </Link>
       </Box>
       <Box

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import RegisterSection from "@/Sections/RegisterSection/RegisterSection";
 import React from "react";
 

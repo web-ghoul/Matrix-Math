@@ -2,12 +2,14 @@
 
 .form_halves {
     grid-template-columns: repeat(2, 1fr);
-    min-height: 80vh;
+    min-height: 60vh;
     .form_image {
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         height: 100%;
+        box-shadow: $box_shadow;
+        border-radius: 10px;
     }
     .agree {
         a {
@@ -16,13 +18,55 @@
         }
     }
     @media(max-width:$lg_size) {
-        min-height: 60vh;
+        min-height: 50vh;
+    }
+    @media(max-width:$lg_size) {
+        .form_image {
+            border-radius: 8px;
+        }
     }
     @media(max-width:$md_size) {
         grid-template-columns: repeat(1, 1fr);
-        min-height: auto;
+        min-height: max-content;
         .form_image {
             display: none;
+        }
+    }
+}
+
+
+.form_triples {
+    grid-template-columns: repeat(auto-fill,minmax(320px,1fr));
+
+    .grade {
+        box-shadow: $box_shadow;
+        border-radius: 10px;
+        background-color: $white;
+        transition: $transition;
+        &:hover {
+            background-color: $main;
+            color: $white;
+            cursor: pointer;
+            .grade_number {
+                border-color: $white;
+            }
+        }
+        .grade_number {
+            transition: $transition;
+            background-color: $main;
+            border: 3px solid $main;
+            color: $white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        @media (max-width:$md_size) {
+            display: grid !important;
+            .grade_number {
+                left: 50%;
+                transform: translateX(-50%);
+                position: relative;
+            }
         }
     }
 }

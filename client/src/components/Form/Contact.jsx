@@ -1,6 +1,5 @@
 import { PrimaryLoadingButton } from "@/mui/Buttons/PrimaryLoadingButton";
 import { PrimaryTextField } from "@/mui/PrimaryTextField";
-import { LoadingButton } from "@mui/lab";
 import React from "react";
 
 const Contact = ({ formik }) => {
@@ -35,7 +34,6 @@ const Contact = ({ formik }) => {
         label="Message"
         multiline
         rows={4}
-        maxRows={4}
         value={formik.values.message}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -45,8 +43,8 @@ const Contact = ({ formik }) => {
       <PrimaryLoadingButton
         type="submit"
         loading={false}
-        loadingPosition="start"
         variant="text"
+        sx={{width:"max-content"}}
       >
         Submit
       </PrimaryLoadingButton>

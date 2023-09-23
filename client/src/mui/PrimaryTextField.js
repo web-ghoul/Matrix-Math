@@ -19,7 +19,7 @@ export const PrimaryTextField = styled(TextField)(({ theme }) => ({
     },
   },
   "& label": {
-    lineHeight: "2.3em !important",
+    lineHeight: "2em !important",
     fontSize: "18px",
     [theme.breakpoints.down("lg")]: {
       lineHeight: "1.8em !important",

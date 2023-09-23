@@ -1,8 +1,17 @@
+@import "../../app/webGhoul.scss";
+
 .home_section_contain {
     grid-template-columns: repeat(2, 1fr);
     img {
-        width:100%;
+        width: 100%;
         height: auto;
         border-radius: 10px;
+    }
+
+    @media(max-width:$md_size) {
+        grid-template-columns: repeat(1, 1fr);
+        .home_image {
+            display: none !important;
+        }
     }
 }

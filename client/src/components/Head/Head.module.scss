@@ -8,8 +8,14 @@
         left: 50%;
         transform: translateX(-50%);
         width: 140%;
-        bottom:0;
+        bottom: 0;
         height: 2px;
         background-color: $main;
+    }
+
+    @media(max-width:$sm_size) {
+        &:after {
+            width: 100%;
+        }
     }
 }

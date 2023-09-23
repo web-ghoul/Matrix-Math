@@ -26,11 +26,11 @@ $ubuntu_font: 'Ubuntu', sans-serif;
 $xs_size: 520px;
 $sm_size: 768px;
 $md_size: 992px;
-$lg_size:1200px;
+$lg_size: 1200px;
 .body {
     min-height: 100vh;
     background-color: $main_back;
-    font-family: $cairo-font;
+    font-family: $ubuntu_font !important;
     .overlay {
         content: "";
         position: absolute;
@@ -270,6 +270,12 @@ $lg_size:1200px;
 
     /*Start Font-Weight*/
 
+    .fw300 {
+        font-weight: 300 !important;
+    }
+    .fw400 {
+        font-weight: 400 !important;
+    }
 
     .fw500 {
         font-weight: 500 !important;

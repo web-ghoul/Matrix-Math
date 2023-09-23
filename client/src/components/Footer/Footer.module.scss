@@ -4,9 +4,10 @@
 .footer {
     background-color: $main;
     color: $white;
-    @media (max-width:$xs_size) {
+    @media (max-width:$sm_size) {
         .footer_contain{
             display: grid !important;
+            flex-wrap: nowrap !important;
         }
     }
 }

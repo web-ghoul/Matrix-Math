@@ -56,9 +56,6 @@ const MyThemeProvider = ({ children }) => {
     typography: {
       fontFamily: "Cairo",
     },
-    button:{
-      fontFamily: "Ubuntu",
-    }
   });
 
   theme.typography.h1 = {
@@ -112,16 +109,16 @@ const MyThemeProvider = ({ children }) => {
   theme.typography.h4 = {
     fontSize: "2rem",
     [theme.breakpoints.down("lg")]: {
-      fontSize: "1.9rem",
-    },
-    [theme.breakpoints.down("md")]: {
       fontSize: "1.8rem",
     },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       fontSize: "1.6rem",
     },
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "1.4rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.2rem",
     },
   };
 

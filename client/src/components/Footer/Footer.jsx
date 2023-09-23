@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import styles from "./Footer.module.scss";
 import { PrimaryBox } from "@/mui/Boxes/PrimaryBox";
 import { Box, Tooltip, Typography } from "@mui/material";
-import Logo from "../Logo/Logo";
 import { FooterIconButton } from "@/mui/Buttons/FooterIconButton";
 import { FaFacebookF, FaFacebookMessenger } from "react-icons/fa";
 import { Google, Telegram, Twitter, YouTube } from "@mui/icons-material";
@@ -58,7 +57,9 @@ const Footer = () => {
             </Box>
           </Box>
           <Box className={`grid jcfs aic g20`}>
-            <Typography variant="h5">Quick Links</Typography>
+            <Typography variant="h5" data-testid="quick_links">
+              Quick Links
+            </Typography>
             <Box className={`grid jcfs aic g10 ${styles.links}`}>
               <Link href={`${process.env.NEXT_PUBLIC_ABOUT_PAGE}`}>
                 <Typography variant="h6" className={`fw500`}>
@@ -78,7 +79,9 @@ const Footer = () => {
             </Box>
           </Box>
           <Box className={`grid jcfs aic g20`}>
-            <Typography variant="h5">Legal</Typography>
+            <Typography variant="h5" data-testid="legal">
+              Legal
+            </Typography>
             <Box className={`grid jcfs aic g10 ${styles.links}`}>
               <Link href={`${process.env.NEXT_PUBLIC_TERMS_AND_SERVICES_PAGE}`}>
                 <Typography variant="h6" className={`fw500`}>
@@ -93,18 +96,31 @@ const Footer = () => {
             </Box>
           </Box>
           <Box className={`grid jcfs aic g20`}>
-            <Typography variant="h5">Contact</Typography>
+            <Typography variant="h5" data-testid="contact">
+              Contact
+            </Typography>
             <Box className={`grid jcfs aic g20 ${styles.contact}`}>
               <Box className={`flex jcfs aic g10`}>
                 <Typography variant="h6">E-mail:</Typography>
-                <Typography variant="h6">{teacher_email}</Typography>
+                <Typography variant="h6" data-testid="teacher_email">
+                  {teacher_email}
+                </Typography>
               </Box>
               <Box className={`flex jcfs aic g10`}>
                 <Typography variant="h6">Telephone:</Typography>
-                <Typography variant="h6">{teacher_phone}</Typography>
+                <Typography variant="h6" data-testid="teacher_phone">
+                  {teacher_phone}
+                </Typography>
               </Box>
             </Box>
-            <FooterButton>Send a Message</FooterButton>
+            <FooterButton
+              data-testid="send_button"
+              onClick={() =>
+                router.push(`${process.env.NEXT_PUBLIC_CONTACT_US_PAGE}`)
+              }
+            >
+              Send a Message
+            </FooterButton>
           </Box>
         </PrimaryContainer>
       </PrimaryBox>

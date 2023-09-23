@@ -11,13 +11,13 @@ const RegisterSection = () => {
       <PrimaryContainer className={`grid jcs aic g50`}>
         <Box className={`grid jcs aic g20`}>
           <Head title={"SIGN UP"} />
-          <Typography variant="h5" className={`tac ttcap fw500`}>
+          <Typography variant="h5" className={`tac ttcap fw400`}>
             Welcome to Matrix Math! Create your account in just a few simple
             steps.
           </Typography>
         </Box>
         <Box>
-            <Form type={"register"}/>
+          <Form type={"register"} />
         </Box>
       </PrimaryContainer>
     </PrimaryBox>

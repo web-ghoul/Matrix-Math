@@ -72,6 +72,7 @@ const Register = ({ formik }) => {
             fullWidth
             id="password"
             name="password"
+            type="password"
             label="Password"
             value={formik.values.password}
             onChange={formik.handleChange}
@@ -83,6 +84,7 @@ const Register = ({ formik }) => {
             fullWidth
             id="confirm_password"
             name="confirm_password"
+            type="password"
             label="Re-type Password"
             value={formik.values.confirm_password}
             onChange={formik.handleChange}
@@ -121,13 +123,50 @@ const Register = ({ formik }) => {
       <PrimaryLoadingButton
         type="submit"
         loading={false}
-        loadingPosition="start"
         variant="text"
         className={`center_rel_x`}
       >
         Sign Up
       </PrimaryLoadingButton>
     </>
+
+    // <>
+    //   <Box className={`grid jcs aic g30 form_triples`}>
+    //     <Box className={`flex jcc aic g10 grade pad50`}>
+    //       <Typography variant="h5" className={`flex jcc aic grade_number`}>
+    //         1
+    //       </Typography>
+    //       <Typography variant="h5" className={`ttuc`}>
+    //         First Year
+    //       </Typography>
+    //     </Box>
+    //     <Box className={`flex jcc aic g10 grade pad50`}>
+    //       <Typography variant="h5" className={`flex jcc aic grade_number`}>
+    //         2
+    //       </Typography>
+    //       <Typography variant="h5" className={`ttuc`}>
+    //         Second Year
+    //       </Typography>
+    //     </Box>
+    //     <Box className={`flex jcc aic g10 grade pad50`}>
+    //       <Typography variant="h5" className={`flex jcc aic grade_number`}>
+    //         3
+    //       </Typography>
+    //       <Typography variant="h5" className={`ttuc`}>
+    //         Third Year
+    //       </Typography>
+    //     </Box>
+    //   </Box>
+    //   <PrimaryLoadingButton
+    //     type="submit"
+    //     loading={false}
+    //     variant="text"
+    //     className={`center_rel_x`}
+    //     sx={{ width: "fit-content" }}
+    //   >
+    //     Let's Get Started
+    //   </PrimaryLoadingButton>
+    // </>
   );
 };
 

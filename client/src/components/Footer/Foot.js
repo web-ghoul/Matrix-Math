@@ -9,7 +9,7 @@ const Foot = () => {
   const { teacher_name } = useContext(TeacherContext);
   return (
     <SecondaryBox className={`${styles.foot}`}>
-      <PrimaryContainer className={`flex jcc aic g30`}>
+      <PrimaryContainer className={`flex flex_wrap jcc aic g30`}>
         <Typography variant="h6" className={`fw500`}>
           Copyright © 2024
         </Typography>

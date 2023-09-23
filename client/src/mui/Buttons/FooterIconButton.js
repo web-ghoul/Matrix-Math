@@ -12,6 +12,7 @@ export const FooterIconButton = styled(IconButton)(({ theme }) => ({
   borderStyle: "solid",
   display: "flex",
   justifyContent: "center",
+  fontFamily:"Ubuntu",
   alignItems: "center",
   "&:hover": {
     backgroundColor: "transparent",

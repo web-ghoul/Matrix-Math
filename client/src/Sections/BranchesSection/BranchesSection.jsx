@@ -7,7 +7,7 @@ const BranchesSection = () => {
   return (
     <PrimaryBox>
       <PrimaryContainer className={`grid jcs aic g50`}>
-        <Head title={"Branches"}/>
+        <Head title={"Branches"} />
       </PrimaryContainer>
     </PrimaryBox>
   );

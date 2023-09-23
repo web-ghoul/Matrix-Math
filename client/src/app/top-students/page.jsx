@@ -1,8 +1,3 @@
-
 export default function TopStudents() {
-  return (
-    <div>
-      Top Students
-    </div>
-  );
+  return <div>Top Students</div>;
 }

@@ -3,4 +3,5 @@ import { SecondaryButton } from "./SecondaryButton";
 
 export const SecondaryBorderButton = styled(SecondaryButton)(({ theme }) => ({
   borderRadius: "30px",
+  fontFamily:"Ubuntu",
 }));

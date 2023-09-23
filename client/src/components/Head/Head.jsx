@@ -4,9 +4,7 @@ import styles from "./Head.module.scss";
 
 const Head = ({ title, basic }) => {
   return (
-    <Box
-      className={`flex aic ${basic ? "jcfs" : "jcc"} `}
-    >
+    <Box className={`flex aic ${basic ? "jcfs" : "jcc"} `}>
       <Typography
         sx={{
           color: (theme) =>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import LoginSection from "@/Sections/LoginSection/LoginSection";
 import React from "react";
 
